@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "WatchTogether",
+  "version": "0.4.0",
+  "description": "Watch videos in sync with a friend, on almost any site. Peer-to-peer, no account, no server.",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "offscreen",
+    "sidePanel",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "WatchTogether"
+  },
+  "side_panel": {
+    "default_path": "sidepanel/sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true,
+      "run_at": "document_idle",
+      "js": [
+        "shared/constants.js",
+        "shared/emoji-storage.js",
+        "content/video-detector.js",
+        "content/sync.js",
+        "content/overlay.js",
+        "content/content.js"
+      ],
+      "css": ["content/content.css"]
+    }
+  ]
+}

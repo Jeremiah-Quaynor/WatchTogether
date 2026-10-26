@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WatchTogether</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <div class="panel">
+    <header>
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span>WatchTogether</span>
+      </div>
+      <div id="header-status" class="header-status">Not in a party</div>
+    </header>
+
+    <div id="empty-state" class="empty-state">
+      <p>You're not in a party yet.</p>
+      <p class="muted">Open the WatchTogether icon in your toolbar to start or join one — then chat and react here.</p>
+    </div>
+
+    <div id="chat-area" class="chat-area hidden">
+      <div class="tools-row">
+        <button id="ready-check-btn" class="tool-btn">⏱ Ready check</button>
+        <button id="voice-btn" class="tool-btn">🎙️ Join voice</button>
+        <button id="voice-mute-btn" class="tool-btn icon-only hidden" title="Mute/unmute your mic">🎤</button>
+        <button id="voice-settings-btn" class="tool-btn icon-only" title="Microphone &amp; speaker">⚙</button>
+      </div>
+      <div id="voice-device-panel" class="voice-device-panel hidden">
+        <label class="device-label" for="mic-select">Microphone</label>
+        <select id="mic-select"></select>
+        <label class="device-label" for="speaker-select">Speaker</label>
+        <select id="speaker-select"></select>
+        <p id="speaker-unsupported-note" class="device-note hidden">
+          This browser/version doesn't support choosing an output device here — use your system's sound settings instead.
+        </p>
+        <p class="device-note">Microphone changes apply next time you join voice. Speaker changes apply immediately.</p>
+      </div>
+      <div id="voice-roster" class="voice-roster hidden"></div>
+
+      <div id="messages" class="messages"></div>
+
+      <div id="picker-panel" class="picker-panel hidden">
+        <div class="picker-search-row">
+          <input id="picker-search" type="text" placeholder="Search emoji (e.g. heart, laugh)" />
+          <button id="picker-close" class="picker-close">×</button>
+        </div>
+        <div id="picker-tabs" class="picker-tabs"></div>
+        <div id="picker-grid" class="picker-grid"></div>
+      </div>
+
+      <div class="reaction-bar-row">
+        <div id="reaction-bar" class="reaction-bar"></div>
+        <button id="edit-bar-btn" class="icon-btn" title="Customize reaction bar">✎</button>
+        <button id="add-emoji-btn" class="icon-btn" title="More emoji">+</button>
+      </div>
+      <div id="bar-edit-tools" class="bar-edit-tools hidden">
+        <span class="muted">Drag to reorder, click × to remove</span>
+        <button id="reset-bar-btn" class="link-btn">Reset to default</button>
+      </div>
+
+      <div class="input-row">
+        <button id="insert-emoji-btn" class="icon-btn" title="Insert emoji">🙂</button>
+        <input id="chat-input" type="text" placeholder="Message your partner…" maxlength="500" />
+        <button id="send-btn" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/constants.js"></script>
+  <script src="../shared/emoji-storage.js"></script>
+  <script src="../lib/emoji-data.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

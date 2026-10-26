@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WatchTogether</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span>WatchTogether</span>
+      </div>
+      <div id="status-line" class="status-line">Not in a party</div>
+    </header>
+
+    <section id="netflix-note" class="netflix-note hidden">
+      WatchTogether doesn't sync Netflix — use Teleparty for that on this tab.
+    </section>
+
+    <section id="profile-section" class="card">
+      <div class="card-title">You</div>
+      <div class="profile-row">
+        <input id="avatar-input" class="avatar-input" maxlength="2" value="🙂" />
+        <input id="name-input" class="name-input" type="text" placeholder="Display name" maxlength="24" />
+      </div>
+    </section>
+
+    <section id="idle-section" class="card">
+      <button id="start-btn" class="btn btn-primary">Start party</button>
+      <div class="divider"><span>or</span></div>
+      <div class="join-row">
+        <input id="join-code" type="text" placeholder="room-code-12" />
+        <button id="join-btn" class="btn btn-secondary">Join</button>
+      </div>
+    </section>
+
+    <section id="active-section" class="card hidden">
+      <div class="room-row">
+        <div>
+          <div class="room-label">Room code</div>
+          <div id="room-code" class="room-code">—</div>
+        </div>
+        <button id="copy-code-btn" class="btn btn-ghost">Copy</button>
+      </div>
+      <div id="peers-line" class="peers-line">Waiting for your partner…</div>
+      <button id="open-same-page-btn" class="btn btn-secondary hidden">Open the same page</button>
+      <button id="leave-btn" class="btn btn-danger">Leave party</button>
+    </section>
+
+    <section class="card">
+      <button id="settings-toggle" class="settings-toggle">⚙ Advanced settings ▾</button>
+      <div id="settings-body" class="settings-body hidden">
+        <label class="checkbox-row">
+          <input id="auto-pause-toggle" type="checkbox" checked />
+          Auto-pause when either side is buffering
+        </label>
+        <label class="field-label">Custom TURN server URL (optional)</label>
+        <input id="turn-url" type="text" placeholder="turn:your-turn-server.example.com:3478" />
+        <label class="field-label">TURN username</label>
+        <input id="turn-username" type="text" />
+        <label class="field-label">TURN credential</label>
+        <input id="turn-credential" type="password" />
+        <button id="save-settings-btn" class="btn btn-secondary">Save settings</button>
+        <p class="hint">Peer-to-peer connections can fail on some mobile/carrier networks without a TURN relay. See the README for free TURN options.</p>
+      </div>
+    </section>
+
+    <footer>
+      <span id="toast" class="toast"></span>
+    </footer>
+  </div>
+
+  <script src="../shared/constants.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WatchTogether test — cross-origin iframe</title>
+  <style>
+    body { background: #111; color: #eee; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 40px; }
+    iframe { width: 720px; height: 405px; max-width: 90vw; border: 1px solid #333; }
+    h1 { font-size: 16px; font-weight: 600; }
+    p { color: #aaa; font-size: 13px; max-width: 720px; }
+  </style>
+</head>
+<body>
+  <h1>WatchTogether test page — cross-origin iframe</h1>
+  <p>
+    The video below lives inside an &lt;iframe&gt; served from a <em>different port</em>
+    (so it's a different origin, like a real third-party player). This proves the
+    extension's video detection reaches into cross-origin iframes, which is the exact
+    case that trips up extensions that only check the top frame.
+  </p>
+  <iframe src="http://localhost:8788/player.html"></iframe>
+</body>
+</html>
